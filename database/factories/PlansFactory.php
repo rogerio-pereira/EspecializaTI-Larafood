@@ -22,6 +22,6 @@ $factory->define(Plan::class, function (Faker $faker) {
         'name' => $faker->word,
         'price' => rand(30,50),
         'description' => $faker->sentence,
-        'url' => $faker->url, 
+        'url' => $faker->word, 
     ];
 });

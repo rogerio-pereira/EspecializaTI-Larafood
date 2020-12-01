@@ -26,10 +26,9 @@
                 <tbody>
                     @foreach ($plans as $plan)
                         <tr>
-                            <td>{{$plan->id}}</td>
                             <td>{{$plan->name}}</td>
-                            <td>{{$plan->price}}</td>
-                            <td><a href='' class='btn btn-warning'>Ver</a></td>
+                            <td>R$ {{number_format($plan->price, 2, ',', '.')}}</td>
+                            <td><a href='{{route('admin.plans.show', $plan->url)}}' class='btn btn-warning'>Ver</a></td>
                         </tr>        
                     @endforeach
                 </tbody>
