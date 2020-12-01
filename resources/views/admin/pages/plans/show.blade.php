@@ -26,5 +26,13 @@
                 </li>
             </ul>
         </div>
+
+        <div class='card-footer'>
+            <form action="{{route('admin.plans.destroy', $plan->url)}}" method="POST">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class='btn btn-danger'>DELETAR O PLANO</button>
+            </form>
+        </div>
     </div>
 @stop
