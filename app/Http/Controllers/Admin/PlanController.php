@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Plan;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -34,7 +35,7 @@ class PlanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.plans.create');
     }
 
     /**
@@ -45,7 +46,11 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['url'] = Str::kebab($data['name']);
+        $this->repository->create($data);
+
+        return redirect()->route('admin.plans.index');
     }
 
     /**
