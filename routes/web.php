@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/admin/plans', 'Admin\PlanController@index')->name('admin.plans.index');
