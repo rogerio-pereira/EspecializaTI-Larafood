@@ -23,6 +23,7 @@
                 <tbody>
                     @foreach ($plans as $plan)
                         <tr>
+                            <td>{{$plan->id}}</td>
                             <td>{{$plan->name}}</td>
                             <td>{{$plan->price}}</td>
                             <td><a href='' class='btn btn-warning'>Ver</a></td>
@@ -30,6 +31,9 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="card-footer">
+            {!! $plans->links() !!}
         </div>
     </div>
 @stop
