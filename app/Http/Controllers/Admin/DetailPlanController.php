@@ -75,10 +75,6 @@ class DetailPlanController extends Controller
         if(!$plan || !$detail)
             return redirect()->back();
 
-        // $data = $request->all();
-        // $data['plan_id'] = $plan->id;
-        // $this->repository->create($data);
-
         $detail->update($request->all());
 
         return redirect()->route('admin.plan.details.index', $plan->url);
