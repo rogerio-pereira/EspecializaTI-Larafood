@@ -27,6 +27,8 @@ Route::group([
     Route::get('/plans/{url}/details', 'DetailPlanController@index')->name('plan.details.index');
     Route::get('/plans/{url}/details/create', 'DetailPlanController@create')->name('plan.details.create');
     Route::post('/plans/{url}/details', 'DetailPlanController@store')->name('plan.details.store');
+    Route::get('/plans/{url}/details/{idDetail}/edit', 'DetailPlanController@edit')->name('plan.details.edit');
+    Route::put('/plans/{url}/details/{idDetail}', 'DetailPlanController@update')->name('plan.details.update');
     
     //Planos
     Route::get('/plans', 'PlanController@index')->name('plans.index');
