@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Plan;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PlanStoreUpdateRequest;
+use Illuminate\Http\Request;
 
 class PlanController extends Controller
 {
@@ -117,5 +118,13 @@ class PlanController extends Controller
         $plan->delete();
 
         return redirect()->route('admin.plans.index');
+    }
+    
+    public function search(Request $request)
+    {
+        $filters = $request->except('_token');
+        $plans = $this->repository->search($request->filter);
+
+        return view('admin.pages.plans.index', compact('plans', 'filters'));
     }
 }

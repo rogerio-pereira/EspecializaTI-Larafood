@@ -28,4 +28,5 @@ Route::group([
     Route::get('/plans/{url}/edit', 'PlanController@edit')->name('admin.plans.edit');
     Route::put('/plans/{url}', 'PlanController@update')->name('admin.plans.update');
     Route::delete('/plans/{url}', 'PlanController@destroy')->name('admin.plans.destroy');
+    Route::any('/admins/plans/search', 'PlanController@search')->name('admin.plans.search');
 });
