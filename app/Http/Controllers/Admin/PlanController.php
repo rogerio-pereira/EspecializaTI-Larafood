@@ -6,6 +6,7 @@ use App\Models\Plan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PlanStoreUpdateRequest;
 
 class PlanController extends Controller
 {
@@ -44,7 +45,7 @@ class PlanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PlanStoreUpdateRequest $request)
     {
         $data = $request->all();
         $data['url'] = Str::kebab($data['name']);
@@ -92,7 +93,7 @@ class PlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $url)
+    public function update(PlanStoreUpdateRequest $request, $url)
     {
         $plan = $this->repository->where('url', $url)->first();
         
