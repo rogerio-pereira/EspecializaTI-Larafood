@@ -235,6 +235,7 @@ return [
             'text' => 'Planos',
             'url'  => 'admin/plans',
             // 'can'  => 'manage-plans',
+            'icon' => 'fas fa-list-alt <mr-2></mr-2>'
         ],
     ],
 

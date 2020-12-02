@@ -31,7 +31,7 @@
             <form action="{{route('admin.plans.destroy', $plan->url)}}" method="POST">
                 @method('DELETE')
                 @csrf
-                <button type="submit" class='btn btn-danger'>DELETAR O PLANO</button>
+                <button type="submit" class='btn btn-danger'><i class="fas fa-trash"></i> DELETAR O PLANO</button>
             </form>
         </div>
     </div>

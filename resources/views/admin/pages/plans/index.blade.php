@@ -10,7 +10,7 @@
 
     <h1>
         Planos 
-        <a href='{{route('admin.plans.create')}}' class='btn btn-dark'>ADD</a>
+        <a href='{{route('admin.plans.create')}}' class='btn btn-dark'><i class="fas fa-plus"></i> Add</i></a>
     </h1>
 @stop
 
