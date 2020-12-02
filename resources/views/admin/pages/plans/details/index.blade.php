@@ -12,7 +12,7 @@
 
     <h1>
         Detalhes do Plano {{$plan->name}}
-        <a href='{{route('admin.plans.create')}}' class='btn btn-dark'><i class="fas fa-plus"></i> Add</i></a>
+        <a href='{{route('admin.plan.details.create', $plan->url)}}' class='btn btn-dark'><i class="fas fa-plus"></i> Add</i></a>
     </h1>
 @stop
 
