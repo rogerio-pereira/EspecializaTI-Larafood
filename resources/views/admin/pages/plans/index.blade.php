@@ -25,7 +25,7 @@
                     <tr>
                         <th>Nome</th>
                         <th>Preço</th>
-                        <th width='50'>Ações</th>
+                        <th width='130'>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +33,10 @@
                         <tr>
                             <td>{{$plan->name}}</td>
                             <td>R$ {{number_format($plan->price, 2, ',', '.')}}</td>
-                            <td><a href='{{route('admin.plans.show', $plan->url)}}' class='btn btn-warning'>Ver</a></td>
+                            <td>
+                                <a href='{{route('admin.plans.edit', $plan->url)}}' class='btn btn-info'>Edit</a>
+                                <a href='{{route('admin.plans.show', $plan->url)}}' class='btn btn-warning'>Ver</a>
+                            </td>
                         </tr>        
                     @endforeach
                 </tbody>
