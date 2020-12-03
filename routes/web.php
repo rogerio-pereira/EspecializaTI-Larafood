@@ -29,6 +29,8 @@ Route::group([
     Route::post('/plans/{url}/details', 'DetailPlanController@store')->name('plan.details.store');
     Route::get('/plans/{url}/details/{idDetail}/edit', 'DetailPlanController@edit')->name('plan.details.edit');
     Route::put('/plans/{url}/details/{idDetail}', 'DetailPlanController@update')->name('plan.details.update');
+    Route::get('/plans/{url}/details/{idDetail}', 'DetailPlanController@show')->name('plan.details.show');
+    Route::delete('/plans/{url}/details/{idDetail}', 'DetailPlanController@destroy')->name('plan.details.destroy');
     
     //Planos
     Route::get('/plans', 'PlanController@index')->name('plans.index');
