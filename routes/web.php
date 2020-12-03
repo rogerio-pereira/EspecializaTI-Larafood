@@ -41,4 +41,7 @@ Route::group([
     Route::put('/plans/{url}', 'PlanController@update')->name('plans.update');
     Route::delete('/plans/{url}', 'PlanController@destroy')->name('plans.destroy');
     Route::any('/admins/plans/search', 'PlanController@search')->name('plans.search');
+
+    //Perfis
+    Route::resource('profiles', 'ACL\ProfileController');
 });
