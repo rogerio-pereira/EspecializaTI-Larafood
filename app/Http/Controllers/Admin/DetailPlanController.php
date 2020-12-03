@@ -6,6 +6,7 @@ use App\Models\Plan;
 use App\Models\DetailPlan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DetailPlanStoreUpdate;
 
 class DetailPlanController extends Controller
 {
@@ -40,7 +41,7 @@ class DetailPlanController extends Controller
         return view('admin.pages.plans.details.create', compact('plan'));
     }
 
-    public function store(Request $request, $urlPlan)
+    public function store(DetailPlanStoreUpdate $request, $urlPlan)
     {
         $plan = $this->planRepository->where('url', $urlPlan)->first();
         
@@ -67,7 +68,7 @@ class DetailPlanController extends Controller
         return view('admin.pages.plans.details.edit', compact('plan', 'detail'));
     }
 
-    public function update(Request $request, $urlPlan, $idDetail)
+    public function update(DetailPlanStoreUpdate $request, $urlPlan, $idDetail)
     {
         $plan = $this->planRepository->where('url', $urlPlan)->first();
         $detail = $this->repository->find($idDetail);
