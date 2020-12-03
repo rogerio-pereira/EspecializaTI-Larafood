@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin\ACL;
 
-use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ProfileStoreUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -43,7 +44,7 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProfileStoreUpdateRequest $request)
     {
         $this->repository->create($request->all());
 
@@ -84,7 +85,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProfileStoreUpdateRequest $request, $id)
     {
         $profile = $this->repository->find($id);
         
