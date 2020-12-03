@@ -237,6 +237,12 @@ return [
             // 'can'  => 'manage-plans',
             'icon' => 'fas fa-list-alt <mr-2></mr-2>'
         ],
+        [
+            'text' => 'Perfis',
+            'url'  => 'admin/profiles',
+            // 'can'  => 'manage-plans',
+            'icon' => 'fas fa-address-book <mr-2></mr-2>'
+        ],
     ],
 
     /*
