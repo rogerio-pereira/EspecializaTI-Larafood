@@ -44,4 +44,5 @@ Route::group([
 
     //Perfis
     Route::resource('profiles', 'ACL\ProfileController');
+    Route::any('/admins/profiles/search', 'ACL\ProfileController@search')->name('profiles.search');
 });

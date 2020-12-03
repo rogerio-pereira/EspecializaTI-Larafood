@@ -23,7 +23,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profiles = $this->repository->paginate();
+        $profiles = $this->repository->latest()->paginate();
     
         return view('admin.pages.profiles.index', compact('profiles'));
     }
@@ -118,5 +118,13 @@ class ProfileController extends Controller
         $profile->delete();
 
         return redirect()->route('admin.profiles.index');
+    }
+    
+    public function search(Request $request)
+    {
+        $filters = $request->except('_token');
+        $profiles = $this->repository->search($request->filter);
+
+        return view('admin.pages.profiles.index', compact('profiles', 'filters'));
     }
 }

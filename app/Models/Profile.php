@@ -10,4 +10,15 @@ class Profile extends Model
         'name',
         'description'
     ];
+
+    public function search($filter = null)
+    {
+        $results = $this
+                        ->where('name', 'LIKE', "%{$filter}%")
+                        ->orWhere('description', 'LIKE', "%{$filter}%")
+                        ->latest()
+                        ->paginate();
+                        
+        return $results;
+    }
 }
