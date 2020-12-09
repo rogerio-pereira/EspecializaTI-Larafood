@@ -45,4 +45,8 @@ Route::group([
     //Perfis
     Route::resource('profiles', 'ACL\ProfileController');
     Route::any('/admins/profiles/search', 'ACL\ProfileController@search')->name('profiles.search');
+
+    //Permissoes
+    Route::resource('permissions', 'ACL\PermissionController');
+    Route::any('/admins/permissions/search', 'ACL\PermissionController@search')->name('permissions.search');
 });

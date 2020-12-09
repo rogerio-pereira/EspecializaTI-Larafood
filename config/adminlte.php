@@ -243,6 +243,12 @@ return [
             // 'can'  => 'manage-plans',
             'icon' => 'fas fa-address-book <mr-2></mr-2>'
         ],
+        [
+            'text' => 'Permissões',
+            'url'  => 'admin/permissions',
+            // 'can'  => 'manage-plans',
+            'icon' => 'fas fa-list-alt <mr-2></mr-2>'
+        ],
     ],
 
     /*
