@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Permissões do Perfil '.$profile->name)
+@section('title', 'Permissões disponíveis para o Perfil '.$profile->name)
 
 @section('content_header')
     <ol class="breadcrumb">
@@ -9,8 +9,7 @@
     </ol>
 
     <h1>
-        Permissões do Perfil <strong>{{$profile->name}}</strong>
-        <a href='{{route('admin.profile.permissions.available', $profile->id)}}' class='btn btn-dark'><i class="fas fa-plus"></i> Add nova permissão</i></a>
+        Permissões disponíveis para o Perfil <strong>{{$profile->name}}</strong>
     </h1>
 @stop
 
@@ -28,19 +27,35 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
+                        <th width='50'>#</th>
                         <th>Nome</th>
-                        <th width='130'>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($permissions as $permission)
+                    <form action="{{ route('admin.profile.permissions.attach', $profile->id) }}" method="post">
+                        @csrf
+
+                        @foreach ($permissions as $permission)
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="permissions[]" id="permission_{{$permission->id}}" value='{{ $permission->id }}'>
+                                </td>
+                                <td>
+                                    <label for='permission_{{$permission->id}}'>
+                                        {{$permission->name}}
+                                    </label>
+                                </td>
+                            </tr>        
+                        @endforeach
+
                         <tr>
-                            <td>{{$permission->name}}</td>
-                            <td>
-                                <a href='{{route('admin.profiles.edit', $permission->id)}}' class='btn btn-info'>Edit</a>
+                            <td colspan="2">
+                                @include('admin.includes.alerts')
+                                 
+                                <button type="submit" class='btn btn-success'>Vincular</button>
                             </td>
-                        </tr>        
-                    @endforeach
+                        </tr>
+                    </form>
                 </tbody>
             </table>
         </div>
