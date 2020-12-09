@@ -247,7 +247,7 @@ return [
             'text' => 'Permissões',
             'url'  => 'admin/permissions',
             // 'can'  => 'manage-plans',
-            'icon' => 'fas fa-list-alt <mr-2></mr-2>'
+            'icon' => 'fas fa-lock <mr-2></mr-2>'
         ],
     ],
 

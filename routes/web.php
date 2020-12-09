@@ -49,4 +49,7 @@ Route::group([
     //Permissoes
     Route::resource('permissions', 'ACL\PermissionController');
     Route::any('/admins/permissions/search', 'ACL\PermissionController@search')->name('permissions.search');
+
+    //Permissoes do Perfil
+    Route::get('profile/{id}/permissions', 'ACL\PermissionProfileController@permissions')->name('profile.permissions');
 });
