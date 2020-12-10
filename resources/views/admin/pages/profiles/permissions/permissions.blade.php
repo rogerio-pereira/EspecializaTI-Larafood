@@ -16,20 +16,12 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header">
-            <form action='{{route('admin.profiles.search')}}' method='POST' class='form form-inline'>
-                @csrf
-
-            <input type="text" name='filter' id='filter' placeholder='Nome' class='form-control' value='{{ $filters['filter'] ?? '' }}'>
-                <button type="submit" class='btn btn-dark'>Filtrar</button>
-            </form>
-        </div>
         <div class="card-body">
             <table class="table table-condensed">
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th width='130'>Ações</th>
+                        <th width='50'>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +29,12 @@
                         <tr>
                             <td>{{$permission->name}}</td>
                             <td>
-                                <a href='{{route('admin.profiles.edit', $permission->id)}}' class='btn btn-info'>Edit</a>
+                                <a 
+                                    href='{{route('admin.profile.permissions.detach', [$profile->id, $permission->id])}}' 
+                                    class='btn btn-danger'
+                                >
+                                    DESVINCULAR
+                                </a>
                             </td>
                         </tr>        
                     @endforeach

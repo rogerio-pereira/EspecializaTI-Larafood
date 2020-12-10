@@ -54,4 +54,5 @@ Route::group([
     Route::get('profile/{id}/permissions', 'ACL\PermissionProfileController@permissions')->name('profile.permissions');
     Route::any('profile/{id}/permissions/create', 'ACL\PermissionProfileController@permissionsAvailableProfile')->name('profile.permissions.available');
     Route::post('profile/{id}/permissions', 'ACL\PermissionProfileController@attachPermissionsProfile')->name('profile.permissions.attach'); 
+    Route::get('profile/{profileId}/permission/{permissionId}/detach', 'ACL\PermissionProfileController@detachPermissionProfile')->name('profile.permissions.detach');
 });
