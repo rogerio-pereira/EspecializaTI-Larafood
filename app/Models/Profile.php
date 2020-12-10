@@ -32,7 +32,7 @@ class Profile extends Model
      *
      * @return void
      */
-    public function permissionsAvailable()
+    public function permissionsAvailable($filter = null)
     {
         //select * from permissions where id not in (select permission_id where profile_id=1)
         //Onde profile_id = id to perfil atual ($this)
@@ -47,7 +47,12 @@ class Profile extends Model
             $query->select('permission_profile.permission_id');
             $query->from('permission_profile');
             $query->whereRaw('permission_profile.profile_id = '.$this->id);
-        })->paginate();
+        })
+        ->where(function($queryFilter) use ($filter){
+            if($filter)
+                $queryFilter->where('permissions.name', 'LIKE', "%{$filter}%");
+        })
+        ->paginate();
 
         return $permissions;
     }
